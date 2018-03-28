@@ -7,7 +7,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <p [ngStyle]="{color: product.isAvailable ? 'blue' : 'red'}">
+    <p appHighlight color="lightblue" [ngStyle]="{color: product.isAvailable ? 'blue' : 'red'}">
       {{ product.description }}
     </p>
   </div>

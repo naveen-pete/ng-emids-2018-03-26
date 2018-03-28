@@ -7,6 +7,7 @@ import { Product } from '../models/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+  searchText = '';
   discountCode = 'NG-EMIDS';
   products: Product[] = [
     {

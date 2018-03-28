@@ -20,7 +20,9 @@
     </div>
 
     <div class="col-sm-7">
-      <app-product-detail [product]="p" *ngFor="let p of products">
+      <input type="text" placeholder="Search..." class="form-control" [(ngModel)]="searchText" />
+      <br>
+      <app-product-detail [product]="p" *ngFor="let p of products | searchProducts : searchText : 'description'">
         <p>
           Discount Code:
           <strong style="color: green">{{ discountCode }}</strong>
