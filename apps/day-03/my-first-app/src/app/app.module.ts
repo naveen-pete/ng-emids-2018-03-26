@@ -9,6 +9,9 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { SearchProductsPipe } from './common/search-products.pipe';
 import { HighlightDirective } from './common/highlight.directive';
 
+import { LoggerService } from './services/logger.service';
+import { ProductsService } from './services/products.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,7 @@ import { HighlightDirective } from './common/highlight.directive';
     HighlightDirective
   ],
   imports: [BrowserModule, FormsModule],
-  providers: [],
+  providers: [LoggerService, ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -10,14 +10,10 @@ import {
   selector: '[appHighlight]'
 })
 export class HighlightDirective implements OnInit {
-  hostElement: ElementRef;
   defaultColor = 'yellow';
   @Input() color: string;
 
-  constructor(el: ElementRef) {
-    this.hostElement = el;
-    console.log(this.hostElement);
-  }
+  constructor(private hostElement: ElementRef) {}
 
   ngOnInit() {
     this.setColor('');

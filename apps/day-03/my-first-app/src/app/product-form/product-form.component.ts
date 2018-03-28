@@ -1,5 +1,8 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product';
+
+import { LoggerService } from '../services/logger.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-product-form',
@@ -9,21 +12,24 @@ import { Product } from '../models/product';
 export class ProductFormComponent implements OnInit {
   product: Product = new Product();
   showMessage = false;
-  @Output() productCreated: EventEmitter<Product> = new EventEmitter<Product>();
 
-  constructor() {}
+  constructor(
+    private loggerService: LoggerService,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit() {}
 
   onSave() {
-    this.productCreated.emit(this.product);
+    this.productsService.addProduct(this.product);
 
     this.product = new Product();
     this.showMessage = true;
 
     setTimeout(() => {
-      console.log(this);
       this.showMessage = false;
     }, 3000);
+
+    this.loggerService.log('Product Form -> New product created.');
   }
 }
