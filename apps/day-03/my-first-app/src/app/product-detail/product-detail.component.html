@@ -14,13 +14,17 @@
   <ul class="list-group">
     <li class="list-group-item">
       <span>
-        {{ product.price | currency : 'INR' }}
+        Price: {{ product.price | currency : 'INR' }}
       </span>
     </li>
     <li class="list-group-item">
+      Status:
       <span class="label" [ngClass]="{ 'label-primary': product.isAvailable, 'label-danger': !product.isAvailable}">
         {{ product.isAvailable ? 'Available' : 'Not Available' }}
       </span>
+    </li>
+    <li class="list-group-item">
+      <ng-content></ng-content>
     </li>
   </ul>
 </div>

@@ -7,6 +7,7 @@ import { Product } from '../models/product';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+  discountCode = 'NG-EMIDS';
   products: Product[] = [
     {
       id: 1,
@@ -33,5 +34,21 @@ export class ProductsComponent {
 
   onProductCreated(newProduct: Product) {
     this.products.unshift(newProduct);
+  }
+
+  onChangeFirst() {
+    if (this.products.length > 0) {
+      this.products[0].name = 'New ' + this.products[0].name;
+    } else {
+      console.log('No products in the list.');
+    }
+  }
+
+  onDeleteFirst() {
+    if (this.products.length > 0) {
+      this.products.splice(0, 1);
+    } else {
+      console.log('No products in the list.');
+    }
   }
 }

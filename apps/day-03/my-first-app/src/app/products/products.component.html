@@ -9,10 +9,23 @@
   <div class="row">
     <div class="col-sm-5">
       <app-product-form (productCreated)="onProductCreated($event)"></app-product-form>
+      <div *ngIf="products.length > 0">
+        <button name="changeFirst" type="button" class="btn btn-warning" (click)="onChangeFirst()">
+          Change First
+        </button>
+        <button name="deleteFirst" type="button" class="btn btn-danger" (click)="onDeleteFirst()">
+          Delete First
+        </button>
+      </div>
     </div>
 
     <div class="col-sm-7">
-      <app-product-detail [product]="p" *ngFor="let p of products"></app-product-detail>
+      <app-product-detail [product]="p" *ngFor="let p of products">
+        <p>
+          Discount Code:
+          <strong style="color: green">{{ discountCode }}</strong>
+        </p>
+      </app-product-detail>
     </div>
   </div>
 </div>
